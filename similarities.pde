@@ -9,8 +9,8 @@ int totalPpl;
 boolean Label = false;
 int[][] mapping_score;
 int[][] mapping_distance;
-int mapping_min =65;
-int mapping_max =2250;
+int mapping_min;
+int mapping_max;
 
 int[][] dis;
 int[] sorting ;
@@ -231,12 +231,14 @@ int setcolor(String mbti_type){
       return #ea8857;
     case "ENFP":
       return #eabf57;
-    case "ENFJ":
+    case "ENTJ":
       return #e5ea57;
+    case "ENFJ":
+      return #acb210;
     case "ESFP":
       return #aeea57;
     case "ESFJ":
-      return #73ea57;
+      return #73ea57;  
   }
   return 0;
 }

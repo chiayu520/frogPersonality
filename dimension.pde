@@ -90,10 +90,6 @@ void draw() {
   textAlign(LEFT);
   noStroke();
   
-
-  
-  
-  
   drawbg();
   mappingDots();
   linkage();
@@ -210,12 +206,14 @@ int setcolor(String mbti_type){
       return #ea8857;
     case "ENFP":
       return #eabf57;
-    case "ENFJ":
+    case "ENTJ":
       return #e5ea57;
+    case "ENFJ":
+      return #acb210;
     case "ESFP":
       return #aeea57;
     case "ESFJ":
-      return #73ea57;
+      return #73ea57;   
   }
   return 0;
 }
@@ -252,29 +250,35 @@ void drawbg(){
   c = setcolor("ENFP");
   fill(c);
   text("ENFP", n*7, n*10);
+  c = setcolor("ENTJ");
+  fill(c);
+  text("ENTJ", n*8, n*10);
   c = setcolor("ENFJ");
   fill(c);
-  text("ENFJ", n*8, n*10);
+  text("ENFJ", n*9, n*10);
   c = setcolor("ESFP");
   fill(c);
-  text("ESFP", n*9, n*10);
+  text("ESFP", n*10, n*10);
   c = setcolor("ESFJ");
   fill(c);
-  text("ESFJ", n*10, n*10); 
+  text("ESFJ", n*11, n*10);
+
 
   // role
   fill(200);
-  text("FIN", n*11, n*10);
-  text("MK", n*12, n*10);
-  text("BD", n*13, n*10);
-  text("PM", n*14, n*10);
-  text("VD", n*15, n*10);
-  text("IxD", n*16, n*10);
-  text("ST", n*17, n*10);
-  text("DR", n*18, n*10);
-  text("DT", n*19, n*10);
-  text("CD", n*20, n*10);
-  text("HR", n*21, n*10);
+  int yn= n*11;
+  text("FIN", n*1, yn);
+  text("MK", n*2, yn);
+  text("BD", n*3, yn);
+  text("PM", n*4, yn);
+  text("VD", n*5, yn);
+  text("IxD", n*6, yn);
+  text("ST", n*7, yn);
+  text("DR", n*8, yn);
+  text("DT", n*9, yn);
+  text("HR", n*10, yn);
+  text("ELSE", n*11, yn);
+
   // diagram
   fill(170);
   text("I", 40-8, yc+8+radius);
@@ -320,50 +324,60 @@ String hover(){
        return "ENFP";
      }
      if ( mouseX > n*8-5 && mouseX < n*9-5){
-       return "ENFJ";
+       return "ENTJ";
      }
      if ( mouseX > n*9-5 && mouseX < n*10-5){
-       return "ESFP";
+       return "ENFJ";
      }
      if ( mouseX > n*10-5 && mouseX < n*11-5){
-       return "ESFJ";
+       return "ESFP";
      }
-     
-    //role
      if ( mouseX > n*11-5 && mouseX < n*12-5){
-       return "FIN";
-     }
-     if ( mouseX > n*12-5 && mouseX < n*13-5){
-       return "MK";
-     }
-     if ( mouseX > n*13-5 && mouseX < n*14-5){
-       return "BD";
-     }
-     if ( mouseX > n*14-5 && mouseX < n*15-5){
-       return "PM";
-     }
-     if ( mouseX > n*15-5 && mouseX < n*16-5){
-       return "VD";
-     }
-     if ( mouseX > n*16-5 && mouseX < n*17-5){
-       return "IxD";
-     }
-     if ( mouseX > n*17-5 && mouseX < n*18-5){
-       return "ST";
-     }
-     if ( mouseX > n*18-5 && mouseX < n*19-5){
-       return "DR";
-     }
-     if ( mouseX > n*19-5 && mouseX < n*20-5){
-       return "DT";
-     }
-     if ( mouseX > n*20-5 && mouseX < n*21-5){
-       return "CD";
-     }
-     if ( mouseX > n*21-5 && mouseX < n*22-5){
-       return "HR";
+       return "ESFJ";
      }
      return "0";
   }
+
+
+    //role
+  if (mouseY < n*11+10 && mouseY > n*11-10){
+     if ( mouseX > n*-5 && mouseX < n*2-5){
+       return "FIN";
+     }
+     if ( mouseX > n*2-5 && mouseX < n*3-5){
+       return "MK";
+     }
+     if ( mouseX > n*3-5 && mouseX < n*4-5){
+       return "BD";
+     }
+     if ( mouseX > n*4-5 && mouseX < n*5-5){
+       return "PM";
+     }
+     if ( mouseX > n*5-5 && mouseX < n*6-5){
+       return "VD";
+     }
+     if ( mouseX > n*6-5 && mouseX < n*7-5){
+       return "IxD";
+     }
+     if ( mouseX > n*7-5 && mouseX < n*8-5){
+       return "ST";
+     }
+     if ( mouseX > n*8-5 && mouseX < n*9-5){
+       return "DR";
+     }
+     if ( mouseX > n*9-5 && mouseX < n*10-5){
+       return "DT";
+     }
+     if ( mouseX > n*10-5 && mouseX < n*11-5){
+       return "HR";
+     }
+     if ( mouseX > n*11-5 && mouseX < n*12-5){
+       return "ELSE";
+     }
+     return "0";
+  }
+
   return "0";
+  
+
 }
